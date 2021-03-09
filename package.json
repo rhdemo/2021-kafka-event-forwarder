@@ -9,6 +9,7 @@
   },
   "scripts": {
     "dev": "nodemon -r dotenv/config index.js dotenv_config_path=.env.local",
+    "format": "prettier **/*.js --write",
     "start": "node index.js"
   },
   "keywords": [],

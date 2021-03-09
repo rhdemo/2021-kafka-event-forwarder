@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /**
  * Send an event to the event forwarder. Usage:
@@ -11,9 +11,9 @@
  *
  */
 
-const got = require('got')
-const { readFileSync } = require('fs')
-const evt = JSON.parse(readFileSync(process.argv[2]))
+const got = require('got');
+const { readFileSync } = require('fs');
+const evt = JSON.parse(readFileSync(process.argv[2]));
 
 got('http://localhost:3004/events/trigger', {
   method: 'POST',
@@ -21,8 +21,10 @@ got('http://localhost:3004/events/trigger', {
     ...evt.headers
   },
   json: evt.body
-}).then((r) => {
-  console.log('sent event')
-}).catch((e) => {
-  console.log('error sending event', e)
 })
+  .then((r) => {
+    console.log('sent event');
+  })
+  .catch((e) => {
+    console.log('error sending event', e);
+  });
