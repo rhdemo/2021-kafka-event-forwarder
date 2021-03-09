@@ -38,6 +38,7 @@
     "env-var": "~7.0.0",
     "fastify": "~3.13.0",
     "fastify-plugin": "~3.0.0",
+    "humanize-duration": "^3.25.1",
     "kafkajs": "~1.15.0"
   }
 }
