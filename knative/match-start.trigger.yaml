@@ -9,4 +9,4 @@ spec:
     attributes:
       type: match-start
   subscriber:
-    uri: http://kafka-event-forwarder-nodejs.svc.cluster.local:8080/events/trigger
+    uri: http://kafka--event--forwarder--nodejs.frontend.svc.cluster.local:80/
