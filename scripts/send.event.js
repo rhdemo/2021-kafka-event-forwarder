@@ -15,7 +15,7 @@ const got = require('got');
 const { readFileSync } = require('fs');
 const evt = JSON.parse(readFileSync(process.argv[2]));
 
-got('http://localhost:3004/events/trigger', {
+got(process.argv[3] || 'http://localhost:8080', {
   method: 'POST',
   headers: {
     ...evt.headers
