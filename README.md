@@ -32,7 +32,7 @@ node scripts/send.event.js payloads/attack.event.json
 ### Deploy
 
 ```bash
-# Create a func.yaml and edit with your args
+# Create a func.yaml and edit with desired env vars
 cp func.template.yaml func.yaml
 
 # Build and deploy the function
@@ -40,12 +40,19 @@ func build
 ./scripts/push
 func deploy
 
+# Create knative triggers that forward events to the function
+oc apply \
+-f knative/attack.trigger.yaml \
+-f knative/match-end.trigger.yaml \
+-f knative/match-start.trigger.yaml
+
 # Prepare kafka connection details
 export KAFKA_BOOTSTRAP_URL=some-broker.kafka.devshift.org:443
 export KAFKA_SVC_USERNAME=service-account-username
 export KAFKA_SVC_PASSWORD=service-account-password
 
 # Apply kafka connection details to knative function config
+# NOTE: you can skip this if you entered these details in the func.yaml
 kn service update kafka--event--forwarder--nodejs \
 --env LOG_LEVEL="trace" \
 --env NODE_ENV="dev" \
