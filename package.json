@@ -1,5 +1,5 @@
 {
-  "name": "2021-kafka-event-forwarder",
+  "name": "2021-kafka-event-forwarder-nodejs",
   "version": "1.0.0",
   "private": true,
   "description": "",
@@ -10,7 +10,8 @@
   "scripts": {
     "dev": "nodemon -r dotenv/config index.js dotenv_config_path=.env.local",
     "format": "prettier **/*.js --write",
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "tape test/**.js"
   },
   "keywords": [],
   "author": "Evan Shortiss <evanshortiss@gmail.com> (https://evanshortiss.com)",
@@ -31,14 +32,15 @@
     "husky": "~4.3.8",
     "nodemon": "~2.0.7",
     "prettier": "~2.2.1",
-    "pretty-quick": "~3.1.0"
+    "pretty-quick": "~3.1.0",
+    "proxyquire": "~2.1.3",
+    "sinon": "~9.2.4",
+    "tape": "~5.2.2"
   },
   "dependencies": {
     "cloudevents": "~4.0.0",
     "env-var": "~7.0.0",
-    "fastify": "~3.13.0",
-    "fastify-plugin": "~3.0.0",
-    "humanize-duration": "^3.25.1",
-    "kafkajs": "~1.15.0"
+    "kafkajs": "~1.15.0",
+    "pino": "^6.11.1"
   }
 }
