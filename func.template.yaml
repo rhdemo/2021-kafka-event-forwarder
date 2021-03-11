@@ -1,0 +1,10 @@
+name: kafka-event-forwarder-nodejs
+namespace: frontend
+runtime: node
+image: quay.io/redhatdemo/2021-kafka-event-forwarder-nodejs
+imageDigest: sha256:6dc8ec2e1c3482373cad0bbfb09d4dc8917d3960ee0926b9519bdcf9c02fc7c1
+trigger: http
+builder: default
+builderMap:
+  default: quay.io/boson/faas-nodejs-builder
+envVars: {}
