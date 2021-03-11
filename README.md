@@ -23,7 +23,7 @@ Start the services using the following scripts:
 ./scripts/node.sh
 ```
 
-Send events to the Node.js service at `localhost:3004` like so:
+Send events to the Node.js service at `localhost:8080` like so:
 
 ```
 node scripts/send.event.js payloads/attack.event.json
