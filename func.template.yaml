@@ -7,4 +7,5 @@ trigger: http
 builder: default
 builderMap:
   default: quay.io/boson/faas-nodejs-builder
-envVars: {}
+envVars:
+  NODE_ENV: dev
