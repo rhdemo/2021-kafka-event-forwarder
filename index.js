@@ -13,11 +13,16 @@ module.exports = async ({ cloudevent }) => {
     };
   } else if (events.isKnownEventType(cloudevent)) {
     try {
-      await events.processEvent(cloudevent);
+      // Fire and forget...but handle errors
+      events.processEvent(cloudevent).catch((e) => {
+        log.error('erorr processing event: %j', cloudevent);
+        log.error(e);
+      });
 
       return {
+        code: 202,
         body: {
-          info: `processed "${cloudevent.type}" successfully`
+          info: `received "${cloudevent.type}" for processing`
         }
       };
     } catch (e) {
