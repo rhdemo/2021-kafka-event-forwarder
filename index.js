@@ -21,9 +21,7 @@ module.exports = async ({ cloudevent }) => {
 
       return {
         code: 202,
-        body: {
-          info: `received "${cloudevent.type}" for processing`
-        }
+        body: {}
       };
     } catch (e) {
       log.error('error processing event: %j', cloudevent);
