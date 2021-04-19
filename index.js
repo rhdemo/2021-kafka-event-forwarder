@@ -20,8 +20,7 @@ module.exports = async ({ cloudevent }) => {
       });
 
       return {
-        code: 202,
-        body: {}
+        code: 202
       };
     } catch (e) {
       log.error('error processing event: %j', cloudevent);
