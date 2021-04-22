@@ -7,7 +7,7 @@ module.exports = async ({ cloudevent }) => {
   if (!cloudevent) {
     log.warn('received a request that did not contain a cloud event');
     return {
-      code: 400,
+      statusCode: 400,
       body: {
         info: 'invalid cloud event HTTP request'
       }
@@ -20,12 +20,12 @@ module.exports = async ({ cloudevent }) => {
     });
 
     return {
-      code: 202
+      statusCode: 202
     };
   } else {
     log.warn(`an unknown event type of "${cloudevent.type}" was received`);
     return {
-      code: 202
+      statusCode: 202
     };
   }
 };
